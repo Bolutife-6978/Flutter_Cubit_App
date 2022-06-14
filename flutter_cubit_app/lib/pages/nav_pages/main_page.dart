@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit/pages/nav_pages/bar_item_page.dart';
-import 'package:flutter_cubit/pages/nav_pages/homes_page.dart';
+import 'package:flutter_cubit/pages/homes_page.dart';
 import 'package:flutter_cubit/pages/nav_pages/my_page.dart';
 import 'package:flutter_cubit/pages/nav_pages/search_page.dart';
 

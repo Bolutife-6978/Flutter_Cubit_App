@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit/pages/nav_pages/homes_page.dart';
+import 'package:flutter_cubit/pages/detail_page.dart';
+import 'package:flutter_cubit/pages/homes_page.dart';
 import 'package:flutter_cubit/pages/nav_pages/main_page.dart';
 import 'package:flutter_cubit/pages/welcome_page.dart';
-
+import 'package:flutter_cubit/pages/detail_page.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,6 +20,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MainPage());
+        home: const DetailPage());
   }
 }

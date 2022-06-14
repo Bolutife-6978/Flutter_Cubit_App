@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-
   var images = {
     "balloning.png": "Balloning",
     "hiking.png": "Hiking",
@@ -25,7 +24,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
-            padding: const EdgeInsets.only(top: 70, left: 20),
+            padding: const EdgeInsets.only(top: 50, left: 20),
             child: Row(
               children: [
                 Icon(Icons.menu, size: 30, color: Colors.black54),
@@ -42,7 +41,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             )),
         const SizedBox(
-          height: 40,
+          height: 20,
         ),
         //Discover text
         Container(
@@ -50,7 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: AppLargeText(text: "Discover"),
         ),
         const SizedBox(
-          height: 20,
+          height: 10,
         ),
         //Tabbar
         Container(
@@ -78,7 +77,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
         Container(
           padding: EdgeInsets.only(left: 20),
-          height: 200,
+          height: 250,
           width: double.maxFinite,
           child: TabBarView(controller: _tabController, children: [
             ListView.builder(
@@ -103,7 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Text("Bye")
           ]),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 10),
         Expanded(
           child: Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -125,8 +124,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         SizedBox(
           height: 10,
         ),
+        // The mountain picture
         Container(
-          height: 100,
+          height: 120,
           width: double.maxFinite,
           margin: const EdgeInsets.only(left: 20),
           child: ListView.builder(
@@ -150,6 +150,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   "img/" + images.keys.elementAt(index)),
                               fit: BoxFit.cover,
                             )),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Container(
                         child: AppText(
