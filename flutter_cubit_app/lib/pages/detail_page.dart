@@ -3,6 +3,7 @@ import 'package:flutter_cubit/misc/colors.dart';
 import 'package:flutter_cubit/widget/app_buttons.dart';
 import 'package:flutter_cubit/widget/app_large_text.dart';
 import 'package:flutter_cubit/widget/app_text.dart';
+import 'package:flutter_cubit/widget/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenStars = 4;
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     var iconButton = IconButton(
@@ -30,7 +32,7 @@ class _DetailPageState extends State<DetailPage> {
                   right: 0,
                   child: Container(
                     width: double.maxFinite,
-                    height: 350,
+                    height: 250,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("img/mountain.jpeg"),
@@ -49,7 +51,7 @@ class _DetailPageState extends State<DetailPage> {
                     ],
                   )),
               Positioned(
-                  top: 320,
+                  top: 220,
                   child: Container(
                     padding:
                         const EdgeInsets.only(left: 20, top: 30, right: 20),
@@ -133,15 +135,68 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                         Wrap(
                           children: List.generate(
-                              5,
-                              (index) => AppButtons(
+                            5,
+                            (index) => InkWell(
+                              onTap: (() {
+                                setState(() {
+                                  selectedIndex = index;
+                                });
+                              }),
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 10),
+                                child: AppButtons(
                                   size: 50,
-                                  color: Colors.black,
-                                  backgroundColor: AppColors.buttonBackground,
-                                  borderColor: AppColors.buttonBackground)),
+                                  color: selectedIndex == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                  backgroundColor: selectedIndex == index
+                                      ? Colors.black
+                                      : AppColors.buttonBackground,
+                                  borderColor: selectedIndex == index
+                                      ? Colors.black
+                                      : AppColors.buttonBackground,
+                                  text: (index + 1).toString(),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        AppLargeText(
+                          text: "Description",
+                          color: Colors.black.withOpacity(0.8),
+                        ),
+                        AppText(
+                          text:
+                              "You must go for a travel. Travelling helps get rid of pressure.You should go to the mountains to see mother nature",
+                          color: AppColors.mainTextColor,
                         )
                       ],
                     ),
+                  )),
+              Positioned(
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
+                  child: Row(
+                    children: [
+                      AppButtons(
+                        size: 60,
+                        color: AppColors.textColor1,
+                        backgroundColor: Colors.white,
+                        borderColor: AppColors.textColor1,
+                        isIcon: true,
+                        icon: Icons.favorite_border,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ResponsiveButton(
+                        isResponsive: true,
+                      )
+                    ],
                   ))
             ],
           )),
