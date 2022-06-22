@@ -6,6 +6,7 @@ import 'package:flutter_cubit/pages/homes_page.dart';
 import 'package:flutter_cubit/pages/welcome_page.dart';
 
 import '../pages/detail_page.dart';
+import '../pages/nav_pages/main_page.dart';
 import 'app_cubits.dart';
 
 class AppCubitLogics extends StatefulWidget {
@@ -32,7 +33,7 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           );
         }
         if (state is LoadedState) {
-          return HomePage();
+          return MainPage();
         } else {
           return Container();
         }
